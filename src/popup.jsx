@@ -289,6 +289,23 @@ function Popup() {
 
       <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
+      {/* Dynamic UX helper caption to explain Buying vs Selling */}
+      <div className="w-full flex justify-center mt-2.5 mb-3 select-none">
+        <span className="text-[9.5px] text-gray-400 font-black tracking-widest uppercase flex items-center gap-2">
+          {activeTab === "selling" ? (
+            <>
+              <span className="w-[6px] h-[6px] rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.5)] animate-pulse"></span>
+              Bank Sells USD to You (e.g. online shopping)
+            </>
+          ) : (
+            <>
+              <span className="w-[6px] h-[6px] rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.5)] animate-pulse"></span>
+              Bank Buys USD from You (e.g. receiving money)
+            </>
+          )}
+        </span>
+      </div>
+
       <StatsDashboard stats={stats} activeTab={activeTab} />
 
       {/* Regulatory/Benchmark Rates Grid */}
@@ -441,6 +458,21 @@ function Popup() {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Credit Footer */}
+      <div className="w-full py-2 flex items-center justify-center bg-gray-50/20 border-t border-gray-100/50 shrink-0">
+        <span className="text-[10px] text-gray-400 font-medium select-none">
+          Made with ❤️ by{" "}
+          <a
+            href="https://chethiya.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-gray-900 font-bold transition-colors hover:underline"
+          >
+            Chethiya
+          </a>
+        </span>
       </div>
 
       <SettingsModal

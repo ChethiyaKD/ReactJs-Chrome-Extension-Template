@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import settingsIcon from "../assets/images/material-symbols_settings-rounded.svg";
 import notificationsIcon from "../assets/images/si_notifications-alt-fill.svg";
 import pinIcon from "../assets/images/tabler_pin-filled.svg";
@@ -167,6 +167,21 @@ export default function SettingsModal({
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Credit Footer in Settings */}
+      <div className="mt-auto pt-6 pb-2 flex items-center justify-center">
+        <span className="text-[10px] text-gray-400 font-medium select-none">
+          Made with ❤️ by{" "}
+          <a
+            href="https://chethiya.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-gray-900 font-bold transition-colors hover:underline"
+          >
+            Chethiya
+          </a>
+        </span>
       </div>
     </div>
   );

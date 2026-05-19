@@ -17,7 +17,12 @@
     "64": "./assets/icons/icon64.png",
     "128": "./assets/icons/icon128.png"
   },
-  "permissions": ["storage", "alarms", "notifications", "contextMenus"],
+  "permissions": ["storage", "alarms", "notifications", "contextMenus", "gcm"],
+  "host_permissions": [
+    "https://fcmregister.googleapis.com/*",
+    "https://fcm.googleapis.com/*",
+    "http://localhost:8080/*"
+  ],
   "web_accessible_resources": [
     {
       "resources": [

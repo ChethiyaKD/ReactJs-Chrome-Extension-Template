@@ -16,6 +16,7 @@
     "buffer": "^6.0.3",
     "css-loader": "^6.8.1",
     "file-loader": "^6.2.0",
+    "firebase": "^12.13.0",
     "postcss": "^8.5.0",
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^10.1.4",

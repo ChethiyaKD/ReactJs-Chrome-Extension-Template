@@ -15,7 +15,7 @@ export default function Header({ onOpenSettings }) {
 
       <div className="flex items-center gap-2">
         <a
-          href="https://google.com"
+          href="https://chromewebstore.google.com/detail/lk-bank-usd-rates/odpahhlfndphekmdgpfacnmnkbnhhhnn?authuser=0&hl=en"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1 text-amber-500 hover:text-amber-600 text-[10.5px] font-semibold tracking-wider uppercase transition-colors duration-200 no-underline cursor-pointer select-none"
