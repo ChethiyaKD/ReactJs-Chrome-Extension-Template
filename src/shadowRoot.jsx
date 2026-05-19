@@ -3,24 +3,28 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import { getBrowser } from "./utils/browser";
 
-export const initPopup = async () => {
+export const initPopup = async (amount, rates) => {
   const popup = document.createElement("div");
   popup.id = "react-chrome-extension-popup";
   popup.style.position = "fixed";
-  popup.style.top = "16px";
-  popup.style.right = "16px";
-  popup.style.width = "384px";
-  popup.style.height = "600px";
-  popup.style.backgroundColor = "white";
-  popup.style.zIndex = "999999";
-  popup.style.boxShadow =
-    "0px 8px 10px -6px rgba(0, 0, 0, 0.1), 0px 20px 25px -5px rgba(0, 0, 0, 0.1)";
-  popup.style.border = "1px solid #E4E6EA";
+  popup.style.top = "20px";
+  popup.style.right = "20px";
+  popup.style.width = "370px";
+  popup.style.height = "490px";
+  popup.style.backgroundColor = "transparent";
+  popup.style.zIndex = "999999999";
   popup.style.display = "flex";
+  
+  // Slide-in transition setup
+  popup.style.transition = "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease";
+  popup.style.transform = "translateX(420px)";
+  popup.style.opacity = "0";
 
   const shadowRoot = popup.attachShadow({ mode: "open" });
   const reactContainer = document.createElement("div");
   reactContainer.id = "react-target";
+  reactContainer.style.width = "100%";
+  reactContainer.style.height = "100%";
   shadowRoot.appendChild(reactContainer);
 
   // Load the built CSS file with Tailwind styles
@@ -31,11 +35,23 @@ export const initPopup = async () => {
 
   document.body.appendChild(popup);
 
+  // Trigger browser layout before animate
+  popup.getBoundingClientRect();
+  popup.style.transform = "translateX(0)";
+  popup.style.opacity = "1";
+
+  const closePopup = () => {
+    popup.style.transform = "translateX(420px)";
+    popup.style.opacity = "0";
+    setTimeout(() => {
+      popup.remove();
+    }, 400);
+  };
+
   const root = createRoot(reactContainer);
   root.render(
-      <App />
+    <App amount={amount} rates={rates} onClose={closePopup} />
   );
 
-  return { popup, shadowRoot, root };
+  return { popup, shadowRoot, root, close: closePopup };
 };
-

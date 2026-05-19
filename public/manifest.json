@@ -17,5 +17,17 @@
     "64": "./assets/icons/icon64.png",
     "128": "./assets/icons/icon128.png"
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "alarms", "notifications", "contextMenus"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "shadow-root.css",
+        "assets/images/*",
+        "assets/fonts/*",
+        "assets/icons/*",
+        "assets/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
